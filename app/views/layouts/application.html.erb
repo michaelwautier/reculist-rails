@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <nav class="navbar">
+      <a href="#">New</a>
+      <%= link_to root_path do %>
+        <h1>Reculist</h1>
+      <% end %>
+      <%= link_to  "Log in", new_user_session_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>
