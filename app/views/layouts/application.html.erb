@@ -11,11 +11,15 @@
 
   <body>
     <nav class="navbar">
-      <a href="#">New</a>
+      <%= link_to  "New", new_task_path %>
       <%= link_to root_path do %>
         <h1>Reculist</h1>
       <% end %>
-      <%= link_to  "Log in", new_user_session_path %>
+      <% if current_user %>
+        <%= link_to  "My tasks", tasks_path %>
+      <% else %>
+        <%= link_to  "Log in", new_user_session_path %>
+      <% end %>
     </nav>
     <%= yield %>
   </body>

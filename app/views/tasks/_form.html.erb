@@ -1,0 +1,5 @@
+<%= simple_form_for @task do |f| %>
+  <%= f.input :title, label: "Titre" %>
+  <%= f.input :category, collection: Category.all, label: "Categorie" %>
+  <%= f.submit %>
+<% end %>
