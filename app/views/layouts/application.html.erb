@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReculistRails</title>
+    <title>Reculist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,14 +11,14 @@
 
   <body>
     <nav class="navbar">
-      <%= link_to  "New", new_task_path %>
-      <%= link_to root_path do %>
+      <%= link_to  "Ajouter une tâche", new_task_path %>
+      <%= link_to root_path, class: "main-title" do %>
         <h1>Reculist</h1>
       <% end %>
       <% if current_user %>
-        <%= link_to  "My tasks", tasks_path %>
+        <%= link_to  "Mes tâches", tasks_path %>
       <% else %>
-        <%= link_to  "Log in", new_user_session_path %>
+        <%= link_to  "Se connecter", new_user_session_path %>
       <% end %>
     </nav>
     <%= yield %>

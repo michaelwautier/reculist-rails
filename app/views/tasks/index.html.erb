@@ -1,12 +1,26 @@
 <div class="container">
-  <h2>My tasks</h2>
+  <div class="flex">
+    <h2>Mes tâches</h2>
+    <%= link_to  icon('fas', 'plus', 'Ajouter'), new_task_path %>
+  </div>
 
   <% @tasks.each do |task| %>
     <div class="task flex">
       <%= task.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
       <h3><%= task.title %></h3>
+      <%= link_to icon('fas', 'plus'), new_task_subtask_path(task.id) %>
       <%= link_to icon('fas', 'edit'), edit_task_path(task) %>
-      <%= link_to icon('fas', 'times'), task_path(task) , method: :delete, data: { confirm: "Are you sure ?"} %>
+      <%= link_to icon('fas', 'times'), task_path(task) , method: :delete, data: { confirm: "Supprimer la tâche ?"} %>
+    </div>
+    <div class="subtasks">
+      <% task.subtasks.each do |subtask| %>
+        <div class="flex">
+          <%= subtask.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
+          <h4><%= subtask.content %></h4>
+          <%= link_to icon('fas', 'edit'), edit_task_subtask_path(task, subtask) %>
+          <%= link_to icon('fas', 'times'), task_subtask_path(task, subtask) , method: :delete, data: { confirm: "Supprimer la sous-tâche ?"} %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
