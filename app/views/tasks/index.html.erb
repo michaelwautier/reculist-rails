@@ -1,26 +1,43 @@
 <div class="container">
-  <div class="flex">
+  <div class="flex align-center">
     <h2>Mes tâches</h2>
     <%= link_to  icon('fas', 'plus', 'Ajouter'), new_task_path %>
   </div>
 
   <% @tasks.each do |task| %>
     <div class="task flex">
-      <%= task.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
-      <h3><%= task.title %></h3>
-      <%= link_to icon('fas', 'plus'), new_task_subtask_path(task.id) %>
-      <%= link_to icon('fas', 'edit'), edit_task_path(task) %>
-      <%= link_to icon('fas', 'times'), task_path(task) , method: :delete, data: { confirm: "Supprimer la tâche ?"} %>
+      <div class="flex-item">
+        <%= task.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
+      </div>
+      <div class="flex-item-grow">
+        <h3><%= task.title %></h3>
+      </div>
+      <div class="flex-item task-actions">
+        <%= link_to icon('fas', 'edit'), edit_task_path(task) %>
+        <%= link_to icon('fas', 'times'), task_path(task) , method: :delete, data: { confirm: "Supprimer la tâche ?"}, class: 'delete-icon' %>
+      </div>
     </div>
     <div class="subtasks">
       <% task.subtasks.each do |subtask| %>
-        <div class="flex">
-          <%= subtask.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
-          <h4><%= subtask.content %></h4>
-          <%= link_to icon('fas', 'edit'), edit_task_subtask_path(task, subtask) %>
-          <%= link_to icon('fas', 'times'), task_subtask_path(task, subtask) , method: :delete, data: { confirm: "Supprimer la sous-tâche ?"} %>
+        <div class="subtask-item flex">
+          <div class="flex-item">
+            <%= subtask.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
+          </div>
+          <div class="flex-item-grow">
+            <p><%= subtask.content %></p>
+          </div>
+          <div class="flex-item">
+            <%= link_to icon('fas', 'edit'), edit_task_subtask_path(task, subtask) %>
+            <%= link_to icon('fas', 'times'), task_subtask_path(task, subtask) , method: :delete, data: { confirm: "Supprimer la sous-tâche ?"} %>
+          </div>
         </div>
+        <% unless subtask == task.subtasks.last %>
+          <hr/>
+        <% end %>
       <% end %>
+      <div class="add-subtask">
+        <%= link_to icon('fas', 'plus', 'Ajouter une sous-tâche'), new_task_subtask_path(task.id) %>
+      </div>
     </div>
   <% end %>
 </div>

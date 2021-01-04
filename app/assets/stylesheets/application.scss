@@ -16,13 +16,37 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #eee;
+}
+
 .container {
-  width: 75%;
+  width: 66%;
   margin: 0 auto;
 }
 
 .flex {
   display: flex;
+}
+
+.flex-item {
+  flex-basis: 5%
+}
+
+.flex-item-grow {
+  flex: 1 0 auto;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-end {
+  justify-content: end;
+}
+
+.align-center {
+  align-items: center;
 }
 
 a {

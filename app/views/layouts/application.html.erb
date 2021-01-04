@@ -11,15 +11,17 @@
 
   <body>
     <nav class="navbar">
-      <%= link_to  "Ajouter une tâche", new_task_path %>
-      <%= link_to root_path, class: "main-title" do %>
-        <h1>Reculist</h1>
-      <% end %>
-      <% if current_user %>
-        <%= link_to  "Mes tâches", tasks_path %>
-      <% else %>
-        <%= link_to  "Se connecter", new_user_session_path %>
-      <% end %>
+      <div class="container flex align-center justify-content-between">
+        <%= link_to  "Ajouter", new_task_path, class: "btn btn-green" %>
+        <%= link_to root_path, class: "main-title" do %>
+          <h1>Reculist</h1>
+        <% end %>
+        <% if current_user %>
+          <%= link_to  "Mes tâches", tasks_path %>
+        <% else %>
+          <%= link_to  "Se connecter", new_user_session_path %>
+        <% end %>
+      </div>
     </nav>
     <%= yield %>
   </body>

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
@@ -25,8 +25,11 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
-    @task.update(task_params)
-    redirect_to tasks_path
+    if @task.update(task_params)
+      redirect_to tasks_path
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -1,0 +1,21 @@
+.subtasks {
+  background-color: white;
+  margin-top: -.5rem;
+  padding: 1.25rem 6.5rem;
+  border: 1px solid rgba(0,0,0,.125);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.subtask-item {
+  margin: 7.5px 0;
+}
+
+hr {
+  opacity: 25%;
+  margin: 15px 0;
+}
+
+.add-subtask {
+  margin-top: 2rem;
+}
