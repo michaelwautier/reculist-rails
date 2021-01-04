@@ -5,12 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-if Category.count.zero?
-  puts 'Creating categories...'
-  Category.create(name: 'travail')
-  Category.create(name: 'maison')
-  puts 'Categories created'
-else
-  puts 'Categories already created'
-end
