@@ -1,7 +1,7 @@
 <div class="container">
   <div class="flex align-center">
-    <h2>Mes tâches</h2>
-    <%= link_to  icon('fas', 'plus', 'Ajouter'), new_task_path %>
+    <h2 class="tasks-title">Mes tâches</h2>
+    <%= link_to  icon('fas', 'plus', 'Ajouter', class: "icon-mr"), new_task_path %>
   </div>
 
   <% @tasks.each do |task| %>
@@ -40,7 +40,7 @@
         <% end %>
       <% end %>
       <div class="add-subtask">
-        <%= link_to icon('fas', 'plus', 'Ajouter une sous-tâche'), new_task_subtask_path(task.id) %>
+        <%= link_to icon('fas', 'plus', 'Ajouter une sous-tâche', class: "icon-mr"), new_task_subtask_path(task.id) %>
       </div>
     </div>
   <% end %>
