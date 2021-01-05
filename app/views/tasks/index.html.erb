@@ -18,10 +18,14 @@
       </div>
     </div>
     <div class="subtasks">
-      <% task.subtasks.each do |subtask| %>
+      <% task.subtasks.order("id").each do |subtask| %>
         <div class="subtask-item flex">
           <div class="flex-item">
-            <%= subtask.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
+            <% if subtask.completed %>
+              <%= link_to icon('fas', 'check-square'), task_subtask_toggle_completed_path(task, subtask), method: :patch %>
+            <% else %>
+              <%= link_to icon('far', 'square'), task_subtask_toggle_completed_path(task, subtask), method: :patch %>
+            <% end %>
           </div>
           <div class="flex-item-grow">
             <p><%= subtask.content %></p>

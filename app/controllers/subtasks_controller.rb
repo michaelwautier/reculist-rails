@@ -28,6 +28,13 @@ class SubtasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def toggle_completed
+    @subtask = Subtask.find(params[:subtask_id])
+    @subtask.update(completed: !@subtask.completed)
+    toggle_task_completed(@subtask)
+    redirect_to tasks_path
+  end
+
   private
 
   def set_subtask
@@ -40,5 +47,10 @@ class SubtasksController < ApplicationController
 
   def subtask_params
     params.require(:subtask).permit(:content)
+  end
+
+  def toggle_task_completed(subtask)
+    @task = subtask.task
+    @task.subtasks.map(&:completed).all? { |e| e == true } ? @task.update(completed: true) : @task.update(completed: false)
   end
 end

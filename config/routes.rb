@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :tasks do
-    resources :subtasks
+    resources :subtasks do
+      patch :toggle_completed
+    end
   end
 end
