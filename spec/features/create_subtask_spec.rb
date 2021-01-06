@@ -15,6 +15,12 @@ RSpec.describe 'Creating a subtask', type: :feature do
     expect(page).to have_content('Convertir les images webp en jpg')
   end
 
+  scenario 'invalid input' do
+    fill_in 'Contenu', with: 'z'
+    click_on 'Create Subtask'
+    expect(page).to have_content("is too short")
+  end
+
   scenario 'without input' do
     fill_in 'Contenu', with: ''
     click_on 'Create Subtask'

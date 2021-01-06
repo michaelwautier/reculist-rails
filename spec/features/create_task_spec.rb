@@ -16,6 +16,13 @@ RSpec.describe 'Creating a task', type: :feature do
   end
 
   scenario 'invalid inputs' do
+    fill_in 'Titre', with: 'z'
+    fill_in 'Categorie', with: ''
+    click_on 'Create Task'
+    expect(page).to have_content('is too short')
+  end
+
+  scenario 'without inputs' do
     fill_in 'Titre', with: ''
     fill_in 'Categorie', with: ''
     click_on 'Create Task'
