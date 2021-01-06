@@ -1,5 +1,7 @@
-<%= simple_form_for @task do |f| %>
-  <%= f.input :title, label: "Titre" %>
-  <%= f.input :category, label: "Categorie" %>
-  <%= f.submit %>
-<% end %>
+<div class="form">
+  <%= simple_form_for @task do |f| %>
+    <%= f.input :title, label: "Titre" %>
+    <%= f.input :category, label: "Categorie" %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
