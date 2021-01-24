@@ -1,46 +1,48 @@
 <div class="container">
-  <div class="flex align-center">
-    <h2 class="tasks-title">Mes tâches</h2>
-    <%= link_to  icon('fas', 'plus', 'Ajouter', class: "icon-mr"), new_task_path %>
+  <div class="d-flex align-items-center">
+    <h2 class="mr-3">Mes tâches</h2>
+    <%= link_to  icon('fas', 'plus', 'Ajouter'), new_task_path %>
   </div>
 
   <% @tasks.each do |task| %>
-    <div class="task flex">
-      <div class="flex-item">
-        <%= task.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
-      </div>
-      <div class="flex-item-grow">
-        <h3><%= task.title %></h3>
-      </div>
-      <div class="flex-item task-actions">
-        <%= link_to icon('fas', 'edit'), edit_task_path(task) %>
-        <%= link_to icon('fas', 'times'), task_path(task) , method: :delete, data: { confirm: "Supprimer la tâche ?"}, class: 'delete-icon' %>
-      </div>
-    </div>
-    <div class="subtasks">
-      <% task.subtasks.order("id").each do |subtask| %>
-        <div class="subtask-item flex">
-          <div class="flex-item">
-            <% if subtask.completed %>
-              <%= link_to icon('fas', 'check-square'), task_subtask_toggle_completed_path(task, subtask), method: :patch, class: "mark_uncompleted" %>
-            <% else %>
-              <%= link_to icon('far', 'square'), task_subtask_toggle_completed_path(task, subtask), method: :patch, class: "mark_completed" %>
-            <% end %>
-          </div>
-          <div class="flex-item-grow">
-            <p><%= subtask.content %></p>
-          </div>
-          <div class="flex-item">
-            <%= link_to icon('fas', 'edit'), edit_task_subtask_path(task, subtask) %>
-            <%= link_to icon('fas', 'times'), task_subtask_path(task, subtask) , method: :delete, data: { confirm: "Supprimer la sous-tâche ?"} %>
-          </div>
+    <div class="card d-flex">
+      <div class="card-header">
+        <div class="flex-item">
+          <%= task.completed ? icon('fas', 'check-square') : icon('far', 'square') %>
         </div>
-        <% unless subtask == task.subtasks.last %>
-          <hr/>
+        <div class="flex-item-grow">
+          <h3><%= task.title %></h3>
+        </div>
+        <div class="flex-item task-actions">
+          <%= link_to icon('fas', 'edit'), edit_task_path(task) %>
+          <%= link_to icon('fas', 'times'), task_path(task) , method: :delete, data: { confirm: "Supprimer la tâche ?"}, class: 'delete-icon' %>
+        </div>
+      </div>
+      <div class="card-body">
+        <% task.subtasks.order("id").each do |subtask| %>
+          <div class="subtask-item flex">
+            <div class="flex-item">
+              <% if subtask.completed %>
+                <%= link_to icon('fas', 'check-square'), task_subtask_toggle_completed_path(task, subtask), method: :patch, class: "mark_uncompleted" %>
+              <% else %>
+                <%= link_to icon('far', 'square'), task_subtask_toggle_completed_path(task, subtask), method: :patch, class: "mark_completed" %>
+              <% end %>
+            </div>
+            <div class="flex-item-grow">
+              <p><%= subtask.content %></p>
+            </div>
+            <div class="flex-item">
+              <%= link_to icon('fas', 'edit'), edit_task_subtask_path(task, subtask) %>
+              <%= link_to icon('fas', 'times'), task_subtask_path(task, subtask) , method: :delete, data: { confirm: "Supprimer la sous-tâche ?"} %>
+            </div>
+          </div>
+          <% unless subtask == task.subtasks.last %>
+            <hr/>
+          <% end %>
         <% end %>
-      <% end %>
-      <div class="add-subtask">
-        <%= link_to icon('fas', 'plus', 'Ajouter une sous-tâche', class: "icon-mr"), new_task_subtask_path(task.id) %>
+        <div class="add-subtask">
+          <%= link_to icon('fas', 'plus', 'Ajouter une sous-tâche', class: "icon-mr"), new_task_subtask_path(task.id) %>
+        </div>
       </div>
     </div>
   <% end %>
