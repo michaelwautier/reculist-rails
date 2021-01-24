@@ -1,77 +1,13 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
+@import "config/bootstrap_variables";
 
 // External libraries
+@import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #eee;
-}
-
-.content {
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.flex-grow {
-  flex: 1 0 auto;
-}
-
-.container {
-  width: 66%;
-  margin: 0 auto;
-}
-
-.form-container {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-item {
-  flex-basis: 5%
-}
-
-.flex-item-grow {
-  flex: 1 0 auto;
-}
-
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.justify-content-end {
-  justify-content: end;
-}
-
-.align-center {
-  align-items: center;
-}
-
-a {
-  text-decoration: none;
-  color: #444;
-
-  &:hover {
-    color: #777;
-  }
-}
-
-.icon-mr {
-  margin-right: .25em;
-}
