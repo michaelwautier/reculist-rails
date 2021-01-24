@@ -1,9 +1,18 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Roboto", "Segoe UI", "sans-serif";
+$headers-font: "Open Sans", "sans-serif";
+
+.main-title {
+  h1 {
+    color: black;
+    font-family: 'Pacifico', cursive;
+  }
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

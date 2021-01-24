@@ -12,17 +12,31 @@
 
   <body>
     <div class="content flex">
-      <nav class="navbar">
-        <div class="container flex align-center justify-content-between">
-          <%= link_to  "Ajouter", new_task_path, class: "btn btn-green" %>
-          <%= link_to root_path, class: "main-title" do %>
-            <h1>Reculist</h1>
-          <% end %>
-          <% if current_user %>
-            <%= link_to  "Mes tâches", tasks_path %>
-          <% else %>
-            <%= link_to  "Se connecter", new_user_session_path %>
-          <% end %>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <%= link_to  "Reculist", root_path, class: "navbar-brand" %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <%= link_to  "Mes listes", tasks_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <!--<%= link_to  "Timeline", root_path, class: "nav-link" %>-->
+                <a class="nav-link" href="#">Timeline</a>
+              </li>
+            </ul>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+            <% if current_user %>
+              <%= link_to  "Mes listes", tasks_path %>
+            <% else %>
+              <%= link_to  "Se connecter", new_user_session_path %>
+            <% end %>
+          </div>
         </div>
       </nav>
       <%= yield %>
