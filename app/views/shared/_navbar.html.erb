@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white mb-5">
   <div class="container">
-    <%= link_to  "Reculist", root_path, class: "navbar-brand" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <h1>Reculist</h1>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
