@@ -1,12 +1,25 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-body {
-  font-family: "Roboto", "Segoe UI", "sans-serif";
-}
+// Define fonts for body and headers
+$body-font: "Roboto", "Segoe UI", "sans-serif";
+$headers-font: "Open Sans", "sans-serif";
 
 .main-title {
-  color: black;
-  font-family: 'Pacifico', cursive;
+  h1 {
+    color: black;
+    font-family: 'Pacifico', cursive;
+  }
 }
+
+// To use a font file (.woff) uncomment following lines
+// @font-face {
+//   font-family: "Font Name";
+//   src: font-url('FontFile.eot');
+//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+//        font-url('FontFile.woff') format('woff'),
+//        font-url('FontFile.ttf') format('truetype')
+// }
+// $my-font: "Font Name";

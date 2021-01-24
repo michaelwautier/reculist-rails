@@ -1,7 +1,12 @@
-<div class="form">
-  <%= simple_form_for @task do |f| %>
-    <%= f.input :title, label: "Titre" %>
-    <%= f.input :category, label: "Categorie" %>
-    <%= f.button :submit %>
-  <% end %>
-</div>
+<%= simple_form_for @task do |f| %>
+  <%= f.input :title, label: "Titre" %>
+  <%= f.input :category, label: "Categorie" %>
+  <div class="form-row">
+    <div class="col-6">
+      <%= link_to  "Retour", tasks_path, class: "btn btn-warning" %>
+    </div>
+    <div class="col-6">
+      <%= f.button :submit, "Confirmer", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
