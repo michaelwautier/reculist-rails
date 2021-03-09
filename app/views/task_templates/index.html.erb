@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="d-flex align-items-center mb-3">
+    <h2 class="mr-3">Mes templates</h2>
+    <%= link_to  icon('fas', 'plus', 'Ajouter'), new_task_template_path %>
+  </div>
+
+  <% @task_templates.each do |task_template| %>
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex align-items-center">
+          <div class="flex-grow-1">
+            <h3><%= task_template.title %></h3>
+          </div>
+          <div>
+            <%= link_to  "Start a task with this template", task_template_create_task_path(task_template), method: :post %>
+            <%= link_to icon('fas', 'edit'), edit_task_template_path(task_template) %>
+            <%= link_to icon('fas', 'times'), task_template_path(task_template) , method: :delete, data: { confirm: "Supprimer la tâche ?"}, class: 'delete-icon' %>
+          </div>
+        </div>
+      </div>
+      <div class="card-body list-group list-group-flush py-2 px-3">
+        <% task_template.subtasks.each do |subtask| %>
+          <div class="d-flex list-group-item">
+            <div class="flex-grow-1">
+              <p class="my-1"><%= subtask %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
