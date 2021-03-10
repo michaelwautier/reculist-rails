@@ -3,7 +3,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.where(user: current_user)
+    @pending_tasks = Task.where(user: current_user, finished_at: nil)
+    @finished_tasks = Task.where(user: current_user).where.not(finished_at: nil)
   end
 
   def show; end

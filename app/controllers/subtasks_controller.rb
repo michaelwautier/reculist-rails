@@ -51,6 +51,6 @@ class SubtasksController < ApplicationController
 
   def toggle_task_completed(subtask)
     @task = subtask.task
-    @task.subtasks.map(&:completed).all? { |e| e == true } ? @task.update(completed: true) : @task.update(completed: false)
+    @task.subtasks.map(&:completed).all? { |e| e == true } ? @task.update(completed: true, finished_at: Time.now) : @task.update(completed: false, finished_at: nil)
   end
 end

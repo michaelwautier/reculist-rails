@@ -1,11 +1,9 @@
 <div class="container">
   <div class="d-flex align-items-center mb-3">
     <h2 class="mr-3">En cours</h2>
-    <%= link_to  icon('fas', 'plus', 'Ajouter'), new_task_path %>
   </div>
-
-  <% @tasks.each do |task| %>
-    <div class="card">
+  <% @pending_tasks.each do |task| %>
+    <div class="card mb-4">
       <div class="card-header">
         <div class="d-flex align-items-center">
           <div class="mr-3">
@@ -44,5 +42,41 @@
         </div>
       </div>
     </div>
+  <% end %>
+  <% unless @finished_tasks.empty? %>
+    <div class="d-flex align-items-center mb-3">
+      <h2 class="mr-3">Terminés</h2>
+    </div>
+    <% @finished_tasks.each do |task| %>
+      <div class="card mb-4">
+        <div class="card-header">
+          <div class="d-flex align-items-center">
+            <div class="mr-3">
+              <%= icon('fas', 'check-square') %>
+            </div>
+            <div class="flex-grow-1 d-flex justify-content-between align-items-center">
+              <h3><%= task.title %></h3>
+              <p class="m-0">Terminée le: <%= task.finished_at.utc.localtime.strftime("%d/%m/%Y - %H:%M") %></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body list-group list-group-flush py-2 px-3">
+          <% task.subtasks.order("id").each do |subtask| %>
+            <div class="d-flex list-group-item">
+              <div class="mx-3 d-flex align-items-center">
+                <% if subtask.completed %>
+                  <%= link_to icon('fas', 'check-square'), task_subtask_toggle_completed_path(task, subtask), method: :patch, class: "mark_uncompleted" %>
+                <% else %>
+                  <%= link_to icon('far', 'square'), task_subtask_toggle_completed_path(task, subtask), method: :patch, class: "mark_completed" %>
+                <% end %>
+              </div>
+              <div class="flex-grow-1">
+                <p class="my-1"><%= subtask.content %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
