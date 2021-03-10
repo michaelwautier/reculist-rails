@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Reculist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="content flex">
-      <nav class="navbar">
-        <div class="container flex align-center justify-content-between">
-          <%= link_to  "Ajouter", new_task_path, class: "btn btn-green" %>
-          <%= link_to root_path, class: "main-title" do %>
-            <h1>Reculist</h1>
-          <% end %>
-          <% if current_user %>
-            <%= link_to  "Mes tâches", tasks_path %>
-          <% else %>
-            <%= link_to  "Se connecter", new_user_session_path %>
-          <% end %>
-        </div>
-      </nav>
+      <%= render 'shared/navbar' %>
       <%= yield %>
     </div>
   </body>

@@ -1,9 +1,11 @@
-<%= simple_form_for @task do |f| %>
+<%= simple_form_for @task_template do |f| %>
   <%= f.input :title, label: "Titre" %>
   <%= f.input :category, label: "Categorie" %>
+  <%= f.input :subtasks, label: "Sous-tâches (séparer par ';')", multiple: true %>
+  
   <div class="form-row">
     <div class="col-6">
-      <%= link_to  "Retour", tasks_path, class: "btn btn-warning" %>
+      <%= link_to  "Retour", task_templates_path, class: "btn btn-warning" %>
     </div>
     <div class="col-6">
       <%= f.button :submit, "Confirmer", class: "btn btn-primary" %>

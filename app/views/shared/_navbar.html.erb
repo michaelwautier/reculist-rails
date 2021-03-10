@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white mb-5">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <h1>Reculist</h1>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <%= link_to  "Mes templates", task_templates_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to  "Mes listes", tasks_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <!--<%= link_to  "Timeline", root_path, class: "nav-link" %>-->
+          <a class="nav-link" href="#">Timeline</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+      <% if current_user %>
+        <%= link_to  "Mon compte", edit_user_registration_path %>
+      <% else %>
+        <%= link_to  "Se connecter", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+</nav>
