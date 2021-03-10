@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca924d0a-dad2-435e-99ae-d9e8796b7fd6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/subtasks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/subtasks_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/task_templates/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/task_templates/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tasks/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +145,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615313414485</updated>
       <workItem from="1615313424036" duration="1263000" />
+      <workItem from="1615361705462" duration="28000" />
     </task>
     <servers />
   </component>
